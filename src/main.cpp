@@ -23,13 +23,8 @@ void setup() {
 
 void loop() {
     for (uint8_t i = 0; i < ledCount; i++) {
-        digitalWrite(leds[i].ledPin, HIGH);
-        Serial.print("led ");
-        Serial.print(i);
-        Serial.print(" on");
-        delay(200);
-        digitalWrite(leds[i].ledPin, LOW);
-        Serial.println("... off");
+        leds[i].status = !leds[i].status;
+        digitalWrite(leds[i].ledPin, leds[i].status);
         delay(200);
     }
 }
